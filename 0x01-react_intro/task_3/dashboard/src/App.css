@@ -1,0 +1,32 @@
+.App-header {
+  display: flex;
+  border-bottom: 3px solid red;
+  align-items: center;
+}
+
+.App-header img {
+  max-width: 20vw;
+}
+.App-header h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3vw;
+  color: red;
+}
+
+.App-body {
+  height: 30vh;
+  
+  font-size: 2vw;
+  margin-top: 6vh;
+  margin-left: 4vw;
+}
+
+.App-footer {
+  position: relative;
+  top: 40vh;
+  border-top: 3px solid red;
+  text-align: center;
+  font-size: 2vw;
+  font-style: italic;
+
+}
