@@ -17,7 +17,7 @@ export function Notifications() {
                 style={{position: 'absolute', right: '0', top: '1vh', border: 'none'}}
                 onClick={() => {console.log('Close button has been clicked')}}
                 >
-                    <img src={close}/>
+                    <img src={close} alt=''/>
                 </button>
     </div>
 
