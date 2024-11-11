@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/repo-name/alx-react/0x01-react_intro/task_4/dashboard/static/css/main.386deb73.css",
-    "main.js": "/repo-name/alx-react/0x01-react_intro/task_4/dashboard/static/js/main.c8fb03a0.js",
-    "static/js/453.59b8a61b.chunk.js": "/repo-name/alx-react/0x01-react_intro/task_4/dashboard/static/js/453.59b8a61b.chunk.js",
-    "static/media/Holberton_Logo.jpg": "/repo-name/alx-react/0x01-react_intro/task_4/dashboard/static/media/Holberton_Logo.24bab5d633e36ca8d17e.jpg",
-    "index.html": "/repo-name/alx-react/0x01-react_intro/task_4/dashboard/index.html",
-    "main.386deb73.css.map": "/repo-name/alx-react/0x01-react_intro/task_4/dashboard/static/css/main.386deb73.css.map",
-    "main.c8fb03a0.js.map": "/repo-name/alx-react/0x01-react_intro/task_4/dashboard/static/js/main.c8fb03a0.js.map",
-    "453.59b8a61b.chunk.js.map": "/repo-name/alx-react/0x01-react_intro/task_4/dashboard/static/js/453.59b8a61b.chunk.js.map"
+    "main.css": "/alx-react/0x01-react_intro/task_4/dashboard/static/css/main.386deb73.css",
+    "main.js": "/alx-react/0x01-react_intro/task_4/dashboard/static/js/main.f0034472.js",
+    "static/js/453.59b8a61b.chunk.js": "/alx-react/0x01-react_intro/task_4/dashboard/static/js/453.59b8a61b.chunk.js",
+    "static/media/Holberton_Logo.jpg": "/alx-react/0x01-react_intro/task_4/dashboard/static/media/Holberton_Logo.24bab5d633e36ca8d17e.jpg",
+    "index.html": "/alx-react/0x01-react_intro/task_4/dashboard/index.html",
+    "main.386deb73.css.map": "/alx-react/0x01-react_intro/task_4/dashboard/static/css/main.386deb73.css.map",
+    "main.f0034472.js.map": "/alx-react/0x01-react_intro/task_4/dashboard/static/js/main.f0034472.js.map",
+    "453.59b8a61b.chunk.js.map": "/alx-react/0x01-react_intro/task_4/dashboard/static/js/453.59b8a61b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.386deb73.css",
-    "static/js/main.c8fb03a0.js"
+    "static/js/main.f0034472.js"
   ]
 }
