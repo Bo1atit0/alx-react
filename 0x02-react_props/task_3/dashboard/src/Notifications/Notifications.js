@@ -1,6 +1,6 @@
 import React from 'react'
 import './Notifications.css'
-import close from '../src/close-icon.png'
+import close from '../../src/close-icon.png'
 import { getLatestNotifications } from '../utils'
 
 import NotificationItem from './NotificationItem'
@@ -11,7 +11,9 @@ export function Notifications() {
     return <div className='Notifications'>
         <p>Here is the list of notifications</p>
         <ul>
-            <NotificationItem type={} value={} html={} />
+        <NotificationItem type='default' value='New course available' />
+            <NotificationItem type='urgent' value='New resume available' />
+            <NotificationItem html={{__html: notification}}/>
         </ul>
         <button aria-label='Close' 
                 style={{position: 'absolute', right: '0', top: '1vh', border: 'none'}}
