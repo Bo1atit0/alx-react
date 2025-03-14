@@ -1,15 +1,19 @@
 import React from "react";
-import shallow from 'enzyme';
+import '@testing-library/jest-dom'
+import { render, screen} from '@testing-library/react'
 import { Footer } from "./Footer";
 
-describe('Footer Component', () => {
-    const footer = shallow(<Footer />)
-    it('Footer Component renders without crashing', () => {
-        expect(footer).toBeTruthy();
+
+describe('Footer Component', () => { 
+    beforeEach( () => {
+        render(<Footer />)
     })
-    // h1
-    it('Footer component should at least contain the text copyright', () => {
-        expect(footer.text()).toContain("Copyright")
+
+    it('verify Footer Component renders without crashing', () => {
+        expect(document.querySelector('.App-footer')).toBeTruthy();
     })
-    
+
+    it('Verify that component renders text - Copyright', () => {
+        expect(screen.getByText(/Copyright/i)).toBeInTheDocument();
+    })
 })

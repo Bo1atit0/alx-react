@@ -1,28 +1,52 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+
+import '@testing-library/jest-dom'
+import { render, screen } from '@testing-library/react'
 import App from './App';
 
 
 describe('App Component', () => {
-    const app = shallow(<App />)
+   
+
+    beforeEach(() => {
+         render(<App />);
+    })
     // test that App renders without crashing
     it('renders without crashing', () => {
-        expect(app).toBeTruthy();
+       
+        expect(screen.getByTestId('app-body')).toBeInTheDocument();
+        expect(screen.getByTestId('app-footer')).toBeInTheDocument();
     })
     
     // verify that App renders a div with the class App-header
-    it('renders a div with class App-header', () => {
-        expect(app.find('.App-header').exists()).toBe(true)
+    it('renders a div with class app', () => {
+        
+        expect(document.querySelector('.app')).toBeTruthy();
     })
     
     // verify that App renders a div with the class App-body
     it('renders a div with the class App-body', () => {
-        expect(app.find('.App-body').exists()).toBe(true)
+        expect(screen.getByTestId('app-body')).toBeTruthy();
     })
 
     // verify that App renders a div with the class App-footer
     it('renders a div with the class App-footer', () => {
-        expect(app.find('.App-footer').exists()).toBe(true)
+        expect(screen.getByTestId('app-footer')).toBeTruthy();
+    })
+
+    // Verify that App renders the Notification Component
+    it('renders the Notification Component', ()=> {
+        expect(screen.getByText(/Here is the list of notifications/i)).toBeInTheDocument();
+    } )
+
+    // Verify that App renders the Header Component
+    it('renders the Header Component', () => {
+        expect(screen.getByRole('heading', { name: /School dashboard/i})).toBeInTheDocument();
+    })
+
+    // Verify that App renders the Login Component
+    it('renders the Login Component', () => {
+        expect(screen.getByText(/Login to access the full dashboard/i)).toBeInTheDocument();
     })
 } )
 

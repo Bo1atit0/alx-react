@@ -1,16 +1,19 @@
 import React from "react";
-import shallow from 'enzyme';
+import '@testing-library/jest-dom'
+import { render, screen } from '@testing-library/react';
 import { Login } from "./Login";
 
 describe('Login Component', () => {
-    const login = shallow(<Login />)
-    it('Login Component renders without crashing', () => {
-        expect(login).toBeTruthy();
+
+    it('renders the Footer Component without crashing', () => {
+        render(<Login />)
     })
-    // h1
-    it('2 input and label tags', () => {
-        expect(login.find('input')).toHaveLengthOf(2)
-        expect(login.find('label')).toHaveLengthOf(2)
+
+    it('verifies that Components renders 2 input and 2 label tags', ()=> {
+
+        render(<Login />)
+        // Login renders 2 inputs and 2 labels
+        const inputs = screen.getAllByLabelText(/.+/);
+        expect(inputs.length).toBe(2)
     })
-    
 })
