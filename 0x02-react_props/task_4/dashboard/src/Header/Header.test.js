@@ -1,17 +1,20 @@
 import React from "react";
-import shallow from 'enzyme';
+import '@testing-library/jest-dom'
+import { screen, render } from '@testing-library/react'
 import { Header } from "./Header";
 
 describe('Header Component', () => {
-    const header = shallow(<Header />)
+    
     it('Header Component renders without creashing', () => {
-        expect(header).toBeTruthy();
+        render(<Header />)
     })
     // h1
     it('h1 renders', () => {
-        expect(header.find('h1').text()).toBe('School dashboard')
+        render(<Header />)
+        expect(screen.getByRole('heading', { name: /School dashboard/i})).toBeInTheDocument();
     })
     it('img renders', () => {
-        expect(header.find('img').exists()).toBe(true)
+        render(<Header />)
+        expect(screen.getByAltText('Holberton Logo')).toBeInTheDocument();
     })
 })

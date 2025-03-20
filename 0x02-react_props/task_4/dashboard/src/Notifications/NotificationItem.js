@@ -4,31 +4,29 @@ import React from 'react'
 const NotificationItem = ({type='default', value='', html=null}) => {
   if (html) {
     return(
-      <div>
-        <li 
-        data-priority={type}
-        dangerouslySetInnerHTML={html}
-        />
-      </div>
-    )
-  }else {
-    return(
-      <div>
-        <li
-        data-priority={type}>{value}</li>
-      </div>
-    )
+      <li
+        data-notification-type={type}
+        dangerouslySetInnerHTML={html} />
+    )} else {
+      return(
+        <li data-notification-type={type}>{value}</li>
+      )
+    }
   }
-  };
 
-  NotificationItem.propType = {
-    type: PropTypes.string.isRequired,
+  NotificationItem.propTypes = {
+    type: PropTypes.string,
     value: PropTypes.string,
     html: PropTypes.shape({
         __html: PropTypes.string
     }),
   };
 
+  // NotificationItem.defaultProps = {
+  //   type: 'default',
+  //   value: '',
+  //   html: null
+  // }
 
 export default NotificationItem
 

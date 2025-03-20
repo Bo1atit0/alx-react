@@ -1,44 +1,71 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
+
+import '@testing-library/jest-dom'
+import { render, screen } from '@testing-library/react'
 import App from './App';
 
+
 describe('App Component', () => {
-  // Test that App renders without crashing
-  test('renders without crashing', () => {
-    render(<App />);
-    // expect(screen.getByText(/Notifications/i)).toBeInTheDocument(); 
-  });
+   
 
-  // Verify that App renders sections with specific classes
-  test('renders App-header, App-body, and App-footer', () => {
-    render(<App />);
-    expect(document.querySelector('.app')).toBeTruthy(); 
-    expect(document.querySelector('.App-body')).toBeTruthy();
-    expect(document.querySelector('.App-footer')).toBeTruthy();
-  });
+    beforeEach(() => {
+         render(<App />);
+    })
+    // test that App renders without crashing
+    it('renders without crashing', () => {
+       
+        expect(screen.getByTestId('app-body')).toBeInTheDocument();
+        expect(screen.getByTestId('app-footer')).toBeInTheDocument();
+    })
+    
+    // verify that App renders a div with the class App-header
+    it('renders a div with class app', () => {
+        
+        expect(document.querySelector('.app')).toBeTruthy();
+    })
+    
+    // verify that App renders a div with the class App-body
+    it('renders a div with the class App-body', () => {
+        expect(screen.getByTestId('app-body')).toBeTruthy();
+    })
 
-  // Test that CourseList is not displayed when isLoggedIn is false
-  test('CourseList is not displayed when isLoggedIn is false', () => {
-    render(<App isLoggedIn={false} />);
-    const courseList = screen.queryByRole('table', { name: /course list/i });
-    expect(courseList).not.toBeInTheDocument();
-  });
+    // verify that App renders a div with the class App-footer
+    it('renders a div with the class App-footer', () => {
+        expect(screen.getByTestId('app-footer')).toBeTruthy();
+    })
 
-  // Test that Login is displayed and CourseList is not displayed when isLoggedIn is false
-  test('Login is displayed when isLoggedIn is false', () => {
-    render(<App isLoggedIn={false} />);
-    const loginComponent = screen.getByText(/Login/i); 
-    expect(loginComponent).toBeInTheDocument();
-  });
+    // Verify that App renders the Notification Component
+    it('renders the Notification Component', ()=> {
+        expect(screen.getByText(/Here is the list of notifications/i)).toBeInTheDocument();
+    } )
 
-  // Test that Login is not displayed and CourseList is displayed when isLoggedIn is true
-  test('Login is not displayed and CourseList is displayed when isLoggedIn is true', () => {
-    render(<App isLoggedIn={true} />);
-    const login = screen.queryByRole('form'); // Adjust based on Login component output
-    expect(login).not.toBeInTheDocument();
+    // Verify that App renders the Header Component
+    it('renders the Header Component', () => {
+        expect(screen.getByRole('heading', { name: /School dashboard/i})).toBeInTheDocument();
+    })
 
-    const courseList = screen.getByRole('table'); // Adjust based on CourseList content
-    expect(courseList).toBeInTheDocument();
-  });
-});
+    // Verify that App renders the Login Component
+    it('renders the Login Component', () => {
+        expect(screen.getByText(/Login to access the full dashboard/i)).toBeInTheDocument();
+    })
+
+    //test to check that CourseList is not displayed
+    it('checks that courselist is not displayed', () => {
+        render(<App isLoggedIn={false} />)
+        expect(screen.queryByRole('table')).not.toBeInTheDocument()
+    })
+} )
+
+describe('App component when isLoggedIn is true', () => {
+    beforeEach(() => {
+        render(<App isLoggedIn={true} />)
+    })
+
+    test('Login Component is not included', () => {
+        expect(screen.queryByText('Login to access the full dashboard')).not.toBeInTheDocument();
+    })
+
+    test('CourseList component is included', () => {
+        expect(screen.getByRole('table')).toBeInTheDocument()
+    })
+})

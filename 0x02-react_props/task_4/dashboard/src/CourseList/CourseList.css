@@ -1,0 +1,20 @@
+table {
+    border: 1px solid #ccc;
+    width: 100%;
+    border-collapse: collapse;
+
+}
+thead tr:first-child {
+    text-align: center;
+    
+}
+thead {
+    text-align: left;
+}
+
+thead tr  {
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+    padding: 0.5vw;
+}
+

@@ -1,5 +1,5 @@
-// import React from 'react'
-// import {render, screen} from '@testing-library/react'
+import React from 'react'
+import {render, screen} from '@testing-library/react'
 import { getFullYear, getFooterCopy, getLatestNotifications } from './utils.js'
 
 // Write a test to check that the function getFullYear returns the correct year (be careful to not create a time bomb)

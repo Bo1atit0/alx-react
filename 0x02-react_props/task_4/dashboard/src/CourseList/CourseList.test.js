@@ -1,17 +1,17 @@
-import CourseList from './CourseList'
-import {render, screen} from '@testing-library/react'
+import CourseList from "./CourseList";
+import '@testing-library/jest-dom';
+import { getAllByRole, render, screen } from '@testing-library/react';
 
-// render without crashing
-test('CourseList renders without crashing', () => {
-    render(<CourseList />);
-})
+describe('CourseList component', () => {
+    it('renders without crashing', () => {
+        render(<CourseList />)
+    })
 
-// renders 5 different rows
-test('CourseList renders 5 different rows', () => {
-    render(<CourseList />)
+    it('checks that it renders all 5 rows', () => {
+        render(<CourseList />)
+        const cells = screen.getAllByRole('row')
+        expect(cells.length).toBe(5)
+    })
 
-    const rows = screen.getAllByRole('row')
-    expect(rows.length).toBe(5);
-
-
+    
 })

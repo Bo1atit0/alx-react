@@ -1,4 +1,6 @@
 import React from "react";
+// import { act } from "react";
+import '@testing-library/jest-dom'
 import {render, screen} from '@testing-library/react'
 import NotificationItem from "./NotificationItem";
 
@@ -19,9 +21,9 @@ describe('NotificationItem component', () => {
 
     // Test3: Rendering correct html 
     test('renders the correct html', () => {
-        render(<NotificationItem type='default' html='<u>Html COntent</u>' />)
-        const htmlContent = screen.getByText('Html Content');
-        expect(htmlContent).toHaveAttribute('data-notification-type', 'default');
-        expect(htmlContent.innerHTML).toBe('<u>Html Content</u>');
+        render(<NotificationItem type='default' html={{ __html: '<u>Html Content</u>'}} />)
+        const listItem = screen.getByRole('listitem');
+        expect(listItem).toHaveAttribute('data-notification-type', 'default');
+        expect(listItem.innerHTML).toBe('<u>Html Content</u>');
     })
 })

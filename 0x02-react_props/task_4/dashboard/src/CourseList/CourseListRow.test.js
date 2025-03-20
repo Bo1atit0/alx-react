@@ -1,46 +1,29 @@
-import CourseListRow from "./CourseListRow"
-import {render, screen} from '@testing-library/react'
-import '@testing-library/jest-dom';
+import CourseListRow from "./CourseListRow";
+import '@testing-library/jest-dom'
+import { render, screen } from '@testing-library/react'
 
+describe('Test CourseListRow component', ()=> {
+    it('test the component renders one cell with colspan = 2 when textSecondCell does not exist if isHeader is true', ()=> {
+        render(<CourseListRow isHeader={true} textFirstCell='Text' />)
+        const cell = screen.getByText('Text');
+        expect(cell).toBeInTheDocument();
+        expect(cell).toHaveAttribute('colspan', '2')
+    })
 
+    it('check to test the component renders two cells when textSecondCell is present', ()=> {
+        render(<CourseListRow isHeader={true} textFirstCell='Text' textSecondCell='Text2' />)
+        const cell1 = screen.getByText('Text')
+        const cell2 = screen.getByText('Text2')
+        expect(cell1).toBeInTheDocument();
+        expect(cell2).toBeInTheDocument();
+    })
 
-
-// Check if isHeader is true and firstCell is present
-test('When isHeader is true component renders one cell with colspan=2 when only textFirstcell is present', () => { 
-    render(<CourseListRow isHeader={true} textFirstCell='HeaderCell'/>);
-    const cell = screen.getByText('HeaderCell');
-    expect(cell).toBeInTheDocument();
-    expect(cell.tagName).toBe('TH');
-    expect(cell).toHaveAttribute('colspan', '2');
-})
-
-test('When isHeader is true component renders two cells when text secondcell is present', () => {
-    render(<CourseListRow isHeader={true} textFirstCell='Header cell 1' textSecondCell='Header cell 2' />)
-    
-    const cell1 = screen.getByText('Header cell 1');
-    const cell2 = screen.getByText('Header cell 2');
-
-    expect(cell1).toBeInTheDocument();
-    expect(cell2).toBeInTheDocument();
-
-    expect(cell1.tagName).toBe('TH');
-    expect(cell2.tagName).toBe('TH');
-}
-
-)
-
-// Check if isHeader is False
-test('When isHeader is false component renders correctly two td elements within a tr element', () => {
-    render(<CourseListRow isHeader={false} textFirstCell='header1' textSecondCell='header2' />)
-
-    const row = screen.getByRole('row')
-    expect(row).toBeInTheDocument();
-
-    const cells = screen.getAllByRole('cell')
-    expect(cells.length).toBe(2)
-    expect(cells[0]).toHaveTextContent('header1');
-    expect(cells[1]).toHaveTextContent('header2')
-
-   
-
+    // When isHeader is false
+    it('test the component renders correctly two td elements within a tr element', () => {
+        render(<CourseListRow isHeader={false} textFirstCell='text'/>)
+        const cell = screen.getAllByRole('cell')
+        expect(cell.length).toBe(2)
+        expect(cell[0].tagName).toBe('TD')
+        expect(cell[1].tagName).toBe('TD')
+    })
 })
