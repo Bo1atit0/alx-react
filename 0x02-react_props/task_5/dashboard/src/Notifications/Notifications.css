@@ -1,0 +1,35 @@
+.not-container .menuItem{
+    display: flex;
+    justify-content: flex-end;
+}
+.Notifications {
+    border: 2px dashed red;
+    padding: 0 1vw;
+    position: relative;
+    font-size: clamp(8px, 2vw, 16px);
+}
+.Notifications li[data-priority='default'] {
+    color: blue !important;
+}
+.Notifications li[data-priority='urgent'] {
+    color: red !important;
+}
+ .Notifications li{
+    color: red;
+} 
+
+button {
+    position: absolute;
+    right: 0;
+    top: 1vh;
+    padding: 0.5vw;
+    margin: 0.5vw 1vw;
+    z-index: 10;
+    border: none;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: #ccc;
+    border: none;
+}
