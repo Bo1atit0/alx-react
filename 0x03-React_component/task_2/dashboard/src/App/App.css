@@ -1,0 +1,15 @@
+
+  .app{
+    position: relative;
+  } 
+ 
+ .notifications{
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+}     
+
+
+
+
