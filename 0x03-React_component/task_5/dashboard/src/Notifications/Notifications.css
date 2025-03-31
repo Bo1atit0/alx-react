@@ -1,0 +1,40 @@
+.not-container .menuItem{
+    display: flex;
+    justify-content: flex-end;
+}
+.Notifications {
+    border: 2px dashed red;
+    padding: 0 1vw;
+    position: relative;
+    font-size: clamp(8px, 2vw, 16px);
+    z-index: 10;
+}
+.Notifications li[data-priority='default'] {
+    color: blue !important;
+}
+.Notifications li[data-priority='urgent'] {
+    color: red !important;
+}
+ .Notifications li{
+    color: red;
+    z-index: 15;
+} 
+.Notifications li:hover {
+    cursor: pointer;
+}
+
+.Notifications button {
+    position: absolute;
+    top: 1vh;
+    right: 0;
+    padding: 0.5vw;
+    margin: 0.5vw 1vw;
+    z-index: 10;
+    border: none;
+}
+
+.Notifications button:hover{
+    cursor: pointer;
+    background-color: #ccc;
+    border: none;
+}
